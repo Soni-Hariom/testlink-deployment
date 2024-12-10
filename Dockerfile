@@ -13,6 +13,10 @@ RUN docker-php-ext-install mysqli && \
   docker-php-ext-install gd
 RUN apt clean
 
+# Create the required directories
+RUN mkdir -p /var/testlink/logs /var/testlink/upload_area
+RUN chmod -R 777 /var/testlink/logs /var/testlink/upload_area
+
 RUN mkdir -p /var/www/testlink
 
 WORKDIR /var/www/testlink
